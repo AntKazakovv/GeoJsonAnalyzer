@@ -80,6 +80,8 @@ def toGeoJson(obj):
         return {"error": "не удалось загрузить geoJson, документ не валиден"}
 
 def getNumberObjects(geoJson):
+    if geoJson.get("error") and geoJson["error"]:
+      return geoJson
     features = geoJson.features
     finalStruct = {}
     for item in features:
